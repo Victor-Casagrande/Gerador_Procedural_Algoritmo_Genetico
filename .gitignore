@@ -1,0 +1,32 @@
+# Ambiente Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+rascunho_*.ipynb
+
+# Editores e sistema
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+~$*
+
+# Material que não é da equipe ou não pertence a este repositório (PLANO.md, seção 8):
+# roteiro, projeto exemplo e slides do professor; Diário de Bordo em edição.
+Roteiro_*
+Projeto_Exemplo_*
+Projeto_Final_IA_Roteiro_*
+Diario_de_Bordo*
+*.docx
+*.pptx
+
+# Pacote de entrega (gerado no fim)
+entrega/*.zip

@@ -1,0 +1,9 @@
+# Python 3.10 ou mais novo.
+# O núcleo do gerador (gerador/ menos desenho.py e graficos.py) usa só a biblioteca padrão.
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.8
+notebook>=7.0
+pytest>=8.0
+# Opcional, para limpar as saídas do notebook antes de cada commit (PLANO.md, seção 8):
+# nbstripout>=0.7
