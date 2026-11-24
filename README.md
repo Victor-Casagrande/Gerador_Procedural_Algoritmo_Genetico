@@ -10,7 +10,9 @@ Um **algoritmo genético**, escrito pela equipe, procura mapas que sejam:
 
 Os mapas do AG são comparados, com a mesma métrica, a três soluções sem IA: um gerador construtivo por regras, a busca aleatória e o construtivo "rerolado".
 
-O plano completo (modelagem, arquitetura, testes, experimentos e cronograma) está em **[docs/PLANO.md](docs/PLANO.md)**.
+O plano completo (modelagem, arquitetura, testes, experimentos e cronograma) está em **[docs/PLANO.md](docs/PLANO.md)**. O estado atual (o que está pronto, quem faz o quê, próximos passos) está em **[docs/ESTADO.md](docs/ESTADO.md)**.
+
+**Vai usar IA?** As regras para qualquer ferramenta de IA estão no **[AGENTS.md](AGENTS.md)**. Para IA de conversa que não lê o repositório, use o prompt pronto de [docs/PROMPT_INICIAL.md](docs/PROMPT_INICIAL.md) e registre o uso em [docs/REGISTRO_IA.md](docs/REGISTRO_IA.md).
 
 ## Estrutura
 
@@ -53,6 +55,18 @@ Rodar os testes:
 
 ```bash
 python -m pytest
+```
+
+Rodar os baselines (sem IA) em 10 sementes, gravando em `resultados/` (alguns minutos):
+
+```bash
+python -m gerador.experimentos baselines --processos 4
+```
+
+Versão rápida, só para conferir que roda (não grava):
+
+```bash
+python -m gerador.experimentos baselines --rapido
 ```
 
 Abrir o notebook:
