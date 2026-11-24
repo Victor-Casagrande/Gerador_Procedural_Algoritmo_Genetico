@@ -2,7 +2,7 @@
 
 **Atualize este arquivo em todo PR:** marque o que ficou pronto e escreva o próximo passo. É por ele que qualquer integrante, e qualquer IA, sabe onde o projeto está sem precisar perguntar.
 
-Última atualização: 24/11/2026 (Victor, com apoio de IA; ver o REGISTRO_IA.md).
+Última atualização: 24/11/2026 (Victor, com apoio de IA; ver o diario/06_registro_ia.md).
 
 ## Papéis
 
@@ -23,8 +23,8 @@ Assim o coração do AG, que o professor mais vai perguntar, é escrito por B e 
 | Checkpoint | Situação |
 |---|---|
 | CP1 (17/11): Ficha | feito |
-| CP2 (24/11): baseline rodando e medido | **pronto no código**; números abaixo; falta anotar no Diário |
-| CP3 (24/11): Quadro, esqueleto, Ponto de Retomada | esqueleto pronto (`operadores`, `ag`, `graficos` com assinaturas); Quadro no Diário v2; **falta o Ponto de Retomada de 24/11 no Diário** |
+| CP2 (24/11): baseline rodando e medido | **pronto**; números abaixo e no Diário (`docs/diario/04_baseline.md`) |
+| CP3 (24/11): Quadro, esqueleto, Ponto de Retomada | esqueleto pronto (`operadores`, `ag`, `graficos` com assinaturas); Quadro e Ponto de Retomada de 24/11 em `docs/diario/` |
 | CP4 (03/12): experimentos e entrega | — |
 
 Observação: em 23/11 não houve aula de IA, ao contrário do que dizia a grade.
@@ -81,7 +81,7 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 | A | Ensaio de convergência (3 sementes) e decisão do orçamento; integrar o AG em `experimentos.py` | 26 a 30/11 |
 | C | Notebook em modo rápido do início ao fim; `grafico_convergencia` | até 01/12 |
 | Todos | Ler os módulos que não escreveram; refazer à mão o mapa M1 (`testes/mapas_pequenos.py`) | até 01/12 |
-| Quem cuida do Diário | Anotar os números do CP2, o Ponto de Retomada de 24/11 e as linhas novas do REGISTRO_IA.md | 24/11 |
+| Todos | Conferir o Diário em `docs/diario/` (números do CP2, Ponto de Retomada de 24/11 e registro de IA já estão lá) e gerar o .docx com `python ferramentas/gerar_diario.py` para mostrar no checkpoint | 24/11 |
 
 ## Pendências e perguntas
 

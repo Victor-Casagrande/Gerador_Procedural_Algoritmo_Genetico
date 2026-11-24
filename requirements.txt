@@ -5,5 +5,6 @@ pandas>=2.0
 matplotlib>=3.8
 notebook>=7.0
 pytest>=8.0
+python-docx>=1.1    # só para gerar o Diário de Bordo (ferramentas/gerar_diario.py)
 # Opcional, para limpar as saídas do notebook antes de cada commit (PLANO.md, seção 8):
 # nbstripout>=0.7

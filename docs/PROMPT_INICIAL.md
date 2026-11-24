@@ -40,4 +40,4 @@ Regras para você:
 Depois da conversa:
 - **Rode `python -m pytest`.**
 - **Leia o código que a IA escreveu até saber explicar cada linha.**
-- **Preencha a linha do [REGISTRO_IA.md](REGISTRO_IA.md)**, principalmente as duas últimas colunas: elas são suas, não da IA.
+- **Preencha a linha do [diario/06_registro_ia.md](diario/06_registro_ia.md)**, principalmente as duas últimas colunas: elas são suas, não da IA.

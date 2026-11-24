@@ -24,7 +24,7 @@ O AG é comparado, com a mesma penalidade, a três soluções sem IA: o gerador 
 1. **Python.** O AG (seleção, cruzamento, mutação, elitismo, laço) é **escrito pela equipe**. É proibido DEAP, PyGAD ou qualquer biblioteca de AG. NumPy, pandas e Matplotlib só para dados e gráficos.
 2. **Experimentos:** 10 sementes por configuração, com média, melhor e pior; pelo menos 2 parâmetros variados; a mesma métrica e o mesmo número de avaliações para todos os métodos que buscam.
 3. **Reprodutível:** o notebook roda do início ao fim num kernel reiniciado, e os números dos slides são os que o código produz.
-4. **Todo uso de IA vai para o registro.** Ele mostra o que foi pedido, o que foi aceito ou rejeitado e como foi verificado: uma linha em [docs/REGISTRO_IA.md](docs/REGISTRO_IA.md) no mesmo PR. Depois a linha é copiada para o Diário de Bordo.
+4. **Todo uso de IA vai para o registro.** Ele mostra o que foi pedido, o que foi aceito ou rejeitado e como foi verificado: uma linha em [docs/diario/06_registro_ia.md](docs/diario/06_registro_ia.md) no mesmo PR. Essa tabela já é a seção 6 do Diário de Bordo.
 5. **Na apresentação, o professor pergunta a cada integrante sobre qualquer parte do código.** Código que a pessoa não sabe explicar não entra.
 
 ## O que a IA pode e não pode fazer aqui
@@ -63,6 +63,33 @@ Quem é A, B e C está no ESTADO.md.
 - **O cromossomo é uma lista de 387 inteiros.** A posição de cada gene sai sempre das funções de `representacao.py` (`pos_tipo`, `pos_leste`, `pos_cartao`...), nunca de um número escrito à mão.
 - **Lógica não entra no notebook:** ela fica nos `.py`.
 
+## Diário de Bordo (docs/diario/)
+
+O Diário de Bordo que o professor confere nos checkpoints é mantido **em Markdown, dentro do repositório**, um arquivo por seção. O `.docx` (e depois o PDF) é gerado com:
+
+```bash
+python ferramentas/gerar_diario.py
+```
+
+O arquivo sai em `entrega/Diario_de_Bordo.docx`. Ele não vai para o Git: é sempre gerado de novo a partir do Markdown.
+
+**Toda tarefa atualiza a seção do Diário que ela afeta, no mesmo PR:**
+
+| Se a tarefa... | Atualize |
+|---|---|
+| usou IA | `06_registro_ia.md`: uma linha nova (as duas últimas colunas são da pessoa, não da IA) |
+| é um fichamento | `03_fichamentos.md`: só quem leu o trabalho preenche, com as próprias palavras; IA não ficha |
+| mudou o baseline ou mediu algo dele | `04_baseline.md` e `08_resultados.md` |
+| mudou uma decisão de modelagem (com a equipe de acordo) | `05_quadro_de_modelagem.md`, com a data e o motivo |
+| terminou um encontro (aula) | `07_pontos_de_retomada.md`: um bloco novo no topo |
+| produziu números de experimento | `08_resultados.md`, citando o arquivo de `resultados/` de onde saíram |
+| é a análise final (03/12) | `09_analise.md` |
+
+**O que a IA nunca faz no Diário:**
+- inventar resultado;
+- preencher as colunas "aceitamos/rejeitamos" e "como verificamos" no lugar da pessoa;
+- escrever um fichamento de trabalho que ninguém leu.
+
 ## Testes
 
 ```bash
@@ -86,7 +113,7 @@ python -m pytest
    - `python -m pytest` passando;
    - o notebook sem saídas;
    - o [docs/ESTADO.md](docs/ESTADO.md) atualizado (o que ficou pronto e o próximo passo);
-   - a linha no [docs/REGISTRO_IA.md](docs/REGISTRO_IA.md), se usou IA.
+   - a linha no [docs/diario/06_registro_ia.md](docs/diario/06_registro_ia.md), se usou IA.
 5. **Commit em português**, no formato `tipo(módulo): o que mudou`, por exemplo `feat(operadores): seleção por torneio com testes`.
 6. **Abra um Pull Request** para a `main` e peça revisão a outro integrante. Quem aprova escreve uma frase explicando o que o código faz. Se não souber explicar, não aprova.
 7. **O que nunca entra no repositório:** o material do professor, o Diário em edição, a `.venv`, chaves e senhas.
