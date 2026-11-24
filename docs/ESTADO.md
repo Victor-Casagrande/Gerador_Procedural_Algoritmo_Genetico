@@ -10,7 +10,7 @@
 |---|---|---|
 | A: núcleo e experimentos | Victor *(proposto; confirmar)* | `config`, `representacao`, `validacao`, `experimentos` |
 | B: sem IA, operadores e desenho | Lucas | `aleatorio`, `baselines`, `operadores`, `desenho` |
-| C: avaliação, AG, gráficos e notebook | *(definir)* | `avaliacao`, `ag`, `graficos`, notebook |
+| C: avaliação, AG, gráficos e notebook | Willighan | `avaliacao`, `ag`, `graficos`, notebook |
 
 Em 24/11, para não perder o CP2, o papel A também implementou `aleatorio`, `baselines`, `avaliacao` e `desenho`. Sugestão para equilibrar:
 - **B fica com `operadores.py`** (torneio, cruzamentos, mutação) e assume o `desenho.py` e o `baselines.py` (lendo, revisando e sabendo explicar);
