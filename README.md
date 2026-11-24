@@ -10,7 +10,9 @@ Um **algoritmo genético**, escrito pela equipe, procura mapas que sejam:
 
 Os mapas do AG são comparados, com a mesma métrica, a três soluções sem IA: um gerador construtivo por regras, a busca aleatória e o construtivo "rerolado".
 
-O plano completo (modelagem, arquitetura, testes, experimentos e cronograma) está em **[docs/PLANO.md](docs/PLANO.md)**.
+O plano completo (modelagem, arquitetura, testes, experimentos e cronograma) está em **[docs/PLANO.md](docs/PLANO.md)**. O estado atual (o que está pronto, quem faz o quê, próximos passos) está em **[docs/ESTADO.md](docs/ESTADO.md)**.
+
+**Vai usar IA?** As regras para qualquer ferramenta de IA estão no **[AGENTS.md](AGENTS.md)**. Para IA de conversa que não lê o repositório, use o prompt pronto de [docs/PROMPT_INICIAL.md](docs/PROMPT_INICIAL.md) e registre o uso em [docs/diario/06_registro_ia.md](docs/diario/06_registro_ia.md).
 
 ## Estrutura
 
@@ -21,6 +23,9 @@ testes/                          um test_<modulo>.py por módulo, rodados com py
 resultados/                      CSV da bateria completa (versionados)
 figuras/                         PNG com fundo branco usados nos slides (versionados)
 docs/PLANO.md                    o plano do projeto
+docs/ESTADO.md                   o que está pronto, quem faz o quê, próximos passos
+docs/diario/                     o Diário de Bordo, uma seção por arquivo (Markdown)
+ferramentas/gerar_diario.py      gera o .docx do Diário
 ```
 
 O que cada módulo faz e quem é o dono: PLANO.md, seção 3.2.
@@ -55,6 +60,24 @@ Rodar os testes:
 python -m pytest
 ```
 
+Rodar os baselines (sem IA) em 10 sementes, gravando em `resultados/` (alguns minutos):
+
+```bash
+python -m gerador.experimentos baselines --processos 4
+```
+
+Versão rápida, só para conferir que roda (não grava):
+
+```bash
+python -m gerador.experimentos baselines --rapido
+```
+
+Gerar o Diário de Bordo (.docx) a partir de `docs/diario/`; sai em `entrega/Diario_de_Bordo.docx`:
+
+```bash
+python ferramentas/gerar_diario.py
+```
+
 Abrir o notebook:
 
 ```bash
@@ -74,7 +97,8 @@ O notebook tem a constante `MODO_RAPIDO`:
 - **Sorteios com semente local:** toda função que sorteia recebe um `rng = random.Random(semente)`. Nunca use `random.seed`, `random.random()` solto nem `np.random` global.
 - **O AG é implementado pela equipe:** seleção, cruzamento, mutação e elitismo escritos à mão. Nada de DEAP, PyGAD ou similares.
 - **O notebook tem um dono só** (papel C). Antes de commitar, limpe as saídas. Para experimentar, use `rascunho_*.ipynb`, que fica fora do Git.
-- **O que nunca entra no repositório:** o material do professor, o Diário de Bordo em edição, a `.venv`, chaves e tokens.
+- **O Diário de Bordo vive em `docs/diario/`** e é atualizado no mesmo PR do trabalho (regras no AGENTS.md). O `.docx` gerado não vai para o Git.
+- **O que nunca entra no repositório:** o material do professor, a `.venv`, chaves e tokens.
 
 ## Uso de IA generativa
 

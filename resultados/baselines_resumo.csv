@@ -1,0 +1,4 @@
+configuracao,execucoes,validos,obrigatorias_media,desejaveis_media,desejaveis_melhor,desejaveis_pior,penalidade_media,tempo_medio,S1_media,S2_media,S3_media,S4_media,S5_media
+construtivo,10,10,0,18.9,8,24,18.9,0.001,8.2,3.7,3.9,2.8,0.3
+busca_aleatoria,10,0,23.5,29.3,18,80,2379.3,26.114,6.3,3.9,10.4,2.2,6.5
+construtivo_rerolado,10,10,0,2.4,2,3,2.4,99.146,0.4,2,0,0,0
