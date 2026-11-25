@@ -2,7 +2,7 @@
 
 **Atualize este arquivo em todo PR:** marque o que ficou pronto e escreva o próximo passo. É por ele que qualquer integrante, e qualquer IA, sabe onde o projeto está sem precisar perguntar.
 
-Última atualização: 24/11/2026 (Victor, com apoio de IA; ver o diario/06_registro_ia.md).
+Última atualização: 25/11/2026 (Papel B, com apoio de IA; ver o diario/06_registro_ia.md).
 
 ## Papéis
 
@@ -75,9 +75,9 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 
 | Quem | Tarefa | Prazo |
 |---|---|---|
-| B | `operadores.py`: `selecao_torneio`, `cruzamento_um_ponto`, `mutacao`, com os testes da seção 5.3 | 25/11 (aula extra) |
+| B | **Concluído em 25/11:** `selecao_torneio`, `cruzamento_um_ponto`, `mutacao`, com os testes da seção 5.3 | 25/11 (aula extra) |
 | C | `ag.py`: `populacao_inicial` e `algoritmo_genetico`, seguindo o laço do projeto exemplo | 25/11 |
-| B | `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) | até 30/11 |
+| B | Próximo passo: `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) | até 30/11 |
 | A | Ensaio de convergência (3 sementes) e decisão do orçamento; integrar o AG em `experimentos.py` | 26 a 30/11 |
 | C | Notebook em modo rápido do início ao fim; `grafico_convergencia` | até 01/12 |
 | Todos | Ler os módulos que não escreveram; refazer à mão o mapa M1 (`testes/mapas_pequenos.py`) | até 01/12 |
