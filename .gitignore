@@ -30,3 +30,6 @@ Diario_de_Bordo*
 
 # Pacote de entrega (gerado no fim)
 entrega/*.zip
+
+# Execuções em modo rápido (experimentos --rapido)
+resultados/rapido/

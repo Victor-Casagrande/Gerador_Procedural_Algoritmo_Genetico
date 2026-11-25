@@ -2,7 +2,7 @@
 
 **Atualize este arquivo em todo PR:** marque o que ficou pronto e escreva o próximo passo. É por ele que qualquer integrante, e qualquer IA, sabe onde o projeto está sem precisar perguntar.
 
-Última atualização: 25/11/2026 (Papel B, com apoio de IA; ver o diario/06_registro_ia.md).
+Última atualização: 25/11/2026 (Papel B e papel A, com apoio de IA; ver o diario/06_registro_ia.md).
 
 ## Papéis
 
@@ -39,9 +39,13 @@ Observação: em 23/11 não houve aula de IA, ao contrário do que dizia a grade
 - `aleatorio.py`: `gerar_aleatorio`, uniforme ou com pesos;
 - `baselines.py`: construtivo (testado em 1000 sementes, nenhuma violação obrigatória), `busca_aleatoria`, `construtivo_rerolado`, `Resultado`;
 - `desenho.py`: `desenhar_mapa` e `desenhar_lado_a_lado`;
-- `experimentos.py`: `rodar_execucao`, `bateria` (com processos), `resumir`, `salvar_csv`, linha de comando.
+- `experimentos.py`: `rodar_execucao`, `bateria` (com processos), `resumir`, `salvar_csv`, linha de comando;
+  - **desde 25/11, os experimentos do AG** (PLANO.md, 6.1 e 6.2): E0, E1 (0 · 0,5 · 2 · 5 genes mutados por filho; o de 1 gene é o `ag_puro`), E2 (cruzamento por zona no AG puro e no semeado) e E3 opcional (população 100 e 400, sem elitismo); o `ensaio` de convergência (4.3) e a comparação `tempo` (6.4);
+  - cada experimento grava `resultados/<exp>_execucoes.csv`, `_resumo.csv`, `_historicos.csv` e `_melhores.json`; o `--rapido` grava em `resultados/rapido/` (fora do Git);
+  - testado com um AG falso (`monkeypatch`), porque o `ag.py` ainda não existe. Quando o C terminar, `experimentos.py` não precisa mudar, desde que `algoritmo_genetico` mantenha a assinatura do esqueleto.
+- `ferramentas/tabela_resultados.py` (25/11): escreve as tabelas do `08_resultados.md` e a tabela de resultados deste arquivo a partir dos CSV. **Nenhum número de resultado é digitado à mão:** depois de cada bateria, rode `python ferramentas/tabela_resultados.py`. Um teste falha se as tabelas ficarem desatualizadas.
 
-**Testes:** 28 testes. Entre eles:
+**Testes:** 56 testes (os do núcleo, da avaliação e dos baselines; 11 dos operadores; 16 dos experimentos e das tabelas, de 25/11). Entre eles:
 - os mapas M1 a M4 com as respostas feitas à mão;
 - o pior caso do `cromossomo_base` (penalidade 6078);
 - as duas buscas concordando;
@@ -57,11 +61,13 @@ Rodado em 24/11 com `python -m gerador.experimentos baselines --processos 10`.
 - **Orçamento:** 60 200 avaliações (200 × 301) por execução, sementes 0 a 9.
 - **Arquivos:** `resultados/baselines_execucoes.csv` (uma linha por execução) e `resultados/baselines_resumo.csv`.
 
+<!-- tabela:estado -->
 | Método | Válidos em 10 | Obrigatórias (média) | Desejáveis: média (melhor – pior) | Penalidade (média) | Tempo por execução |
 |---|---|---|---|---|---|
-| Construtivo (1 mapa) | 10 | 0 | 18,9 (8 – 24) | 18,9 | ~0,001 s |
-| Busca aleatória | **0** | 23,5 | 29,3 (18 – 80) | 2379,3 | ~26 s |
-| Construtivo rerolado | 10 | 0 | **2,4 (2 – 3)** | 2,4 | ~99 s |
+| Construtivo | 10 | 0 | 18,9 (8 – 24) | 18,9 | ~0,001 s |
+| Busca aleatória | 0 | 23,5 | 29,3 (18 – 80) | 2379,3 | ~26 s |
+| Construtivo rerolado | 10 | 0 | 2,4 (2 – 3) | 2,4 | ~99 s |
+<!-- /tabela:estado -->
 
 Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,8, S5 = 0,3; rerolado S1 = 0,4, S2 = 2,0 e o resto 0.
 
@@ -78,7 +84,9 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 | B | **Concluído em 25/11:** `selecao_torneio`, `cruzamento_um_ponto`, `mutacao`, com os testes da seção 5.3 | 25/11 (aula extra) |
 | C | `ag.py`: `populacao_inicial` e `algoritmo_genetico`, seguindo o laço do projeto exemplo | 25/11 |
 | B | Próximo passo: `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) | até 30/11 |
-| A | Ensaio de convergência (3 sementes) e decisão do orçamento; integrar o AG em `experimentos.py` | 26 a 30/11 |
+| A | **Concluído em 25/11:** experimentos do AG em `experimentos.py` (E0 a E3, ensaio, tempo) e `ferramentas/tabela_resultados.py` | 25/11 |
+| A | Ensaio de convergência assim que o `ag.py` rodar: `python -m gerador.experimentos ensaio --processos 3`; decidir o orçamento e registrar no `05_quadro_de_modelagem.md` e no `08_resultados.md` | 26 a 30/11 |
+| A | Bateria completa: `python -m gerador.experimentos tudo --processos 10`, depois `python ferramentas/tabela_resultados.py`; comparação por tempo com `python -m gerador.experimentos tempo` (rodar os baselines e o AG com o mesmo número de processos) | 01 e 02/12 |
 | C | Notebook em modo rápido do início ao fim; `grafico_convergencia` | até 01/12 |
 | Todos | Ler os módulos que não escreveram; refazer à mão o mapa M1 (`testes/mapas_pequenos.py`) | até 01/12 |
 | Todos | Conferir o Diário em `docs/diario/` (números do CP2, Ponto de Retomada de 24/11 e registro de IA já estão lá) e gerar o .docx com `python ferramentas/gerar_diario.py` para mostrar no checkpoint | 24/11 |
