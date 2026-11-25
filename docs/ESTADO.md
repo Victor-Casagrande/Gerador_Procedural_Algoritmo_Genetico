@@ -2,17 +2,17 @@
 
 **Atualize este arquivo em todo PR:** marque o que ficou pronto e escreva o próximo passo. É por ele que qualquer integrante, e qualquer IA, sabe onde o projeto está sem precisar perguntar.
 
-Última atualização: 25/11/2026 (Papel B e papel A, com apoio de IA; ver o diario/06_registro_ia.md).
+Última atualização: 25/11/2026 (Lucas e Victor, com apoio de IA; ver o diario/06_registro_ia.md).
 
 ## Papéis
 
 | Papel | Quem | Módulos |
 |---|---|---|
-| A: núcleo e experimentos | Victor *(proposto; confirmar)* | `config`, `representacao`, `validacao`, `experimentos` |
+| A: núcleo e experimentos | Victor | `config`, `representacao`, `validacao`, `experimentos` |
 | B: sem IA, operadores e desenho | Lucas | `aleatorio`, `baselines`, `operadores`, `desenho` |
 | C: avaliação, AG, gráficos e notebook | Willighan | `avaliacao`, `ag`, `graficos`, notebook |
 
-Em 24/11, para não perder o CP2, o papel A também implementou `aleatorio`, `baselines`, `avaliacao` e `desenho`. Sugestão para equilibrar:
+Em 24/11, para não perder o CP2, o papel A também implementou `aleatorio`, `baselines`, `avaliacao` e `desenho`. Divisão combinada pela equipe para equilibrar:
 - **B fica com `operadores.py`** (torneio, cruzamentos, mutação) e assume o `desenho.py` e o `baselines.py` (lendo, revisando e sabendo explicar);
 - **C fica com `ag.py`, `graficos.py` e o notebook**, e assume o `avaliacao.py` da mesma forma.
 
@@ -84,6 +84,7 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 | B | **Concluído em 25/11:** `selecao_torneio`, `cruzamento_um_ponto`, `mutacao`, com os testes da seção 5.3 | 25/11 (aula extra) |
 | C | `ag.py`: `populacao_inicial` e `algoritmo_genetico`, seguindo o laço do projeto exemplo | 25/11 |
 | B | Próximo passo: `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) | até 30/11 |
+| A | Fichamento de Pereira et al. (2021) em `docs/diario/03_fichamentos.md` (lido e escrito pelo Victor). As perguntas ao professor ficam para 01/12: em 25/11 ele não comentou o projeto, só pediu que a equipe seguisse com o desenvolvimento | até 01/12 |
 | A | **Concluído em 25/11:** experimentos do AG em `experimentos.py` (E0 a E3, ensaio, tempo) e `ferramentas/tabela_resultados.py` | 25/11 |
 | A | Ensaio de convergência assim que o `ag.py` rodar: `python -m gerador.experimentos ensaio --processos 3`; decidir o orçamento e registrar no `05_quadro_de_modelagem.md` e no `08_resultados.md` | 26 a 30/11 |
 | A | Bateria completa: `python -m gerador.experimentos tudo --processos 10`, depois `python ferramentas/tabela_resultados.py`; comparação por tempo com `python -m gerador.experimentos tempo` (rodar os baselines e o AG com o mesmo número de processos) | 01 e 02/12 |
