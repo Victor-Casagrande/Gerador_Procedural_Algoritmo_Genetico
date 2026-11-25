@@ -112,7 +112,9 @@ def adicionar_markdown(doc, texto):
         if not s:
             fecha_paragrafo()
             k += 1
-        elif s.startswith("```"):                     # bloco de código: copia como está
+        elif s.startswith("<!--") and s.endswith("-->"):   # comentário (ex.: marcador de tabela): não vai para o .docx
+            k += 1
+        elif s.startswith("```"):                    # bloco de código: copia como está
             fecha_paragrafo()
             k += 1
             while k < len(linhas) and not linhas[k].strip().startswith("```"):
