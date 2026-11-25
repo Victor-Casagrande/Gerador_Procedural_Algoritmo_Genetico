@@ -77,23 +77,22 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 - **Sortear 60 200 mapas do construtivo e ficar com o melhor é um baseline muito forte:** penalidade de 2 a 3. É o risco previsto no PLANO.md (D8): **o AG precisa chegar perto de 2 para empatar.** O rerolado também é o método mais lento por avaliação (gerar um mapa construtivo custa cerca de 0,7 ms). Vale comparar também por tempo, não só por número de avaliações, e mostrar onde cada método erra (S1 a S5).
 - **Os parâmetros de `Regras` congelam hoje.** Não podem ser mexidos para o AG "ganhar" (PLANO.md, D9).
 
-## Agenda apertada: a apresentação pode ser em 01/12 ou 03/12
+## Agenda: apresentação em 03/12 (01/12 é opcional)
 
-Aviso de 25/11: a apresentação pode acontecer em **01/12 ou 03/12**, e não só em 07/12. Para não arriscar, o plano abaixo vale para o **pior caso, 01/12**. Não há aula de 26 a 30/11, então tudo é feito em casa. É uma proposta do papel A: a equipe confirma ou ajusta.
+Aviso de 25/11: a apresentação passou para **03/12, obrigatória**, junto com o CP4 e a entrega no SIGAA. Apresentar antes, em **01/12, é opcional**: só se tudo estiver pronto. O escopo não muda: E0, E1, E2 e, se der tempo, o E3. O que muda é que slides e ensaio, que eram de 04 a 06/12, passam para antes de 03/12. É uma proposta do papel A: a equipe confirma ou ajusta.
 
 | Até | Quem | O quê |
 |---|---|---|
-| 27/11 (qui) | C | `ag.py` rodando: `populacao_inicial` e `algoritmo_genetico`, com os testes de elitismo, contador e reprodutibilidade (PLANO.md, 5.3). **É o que destrava todo o resto** |
-| 27/11 (qui) | B | `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) |
-| 28/11 (sex) | A | Ensaio de convergência (`python -m gerador.experimentos ensaio --processos 3`) e decisão do orçamento |
-| 29/11 (sáb) | A | Bateria completa (`python -m gerador.experimentos tudo --processos 10`, a estimativa do PLANO.md, 4.2, é de cerca de 8 min com 8 processos numa máquina rápida; medir no ensaio), tabelas com `python ferramentas/tabela_resultados.py` e a comparação por tempo |
-| 29/11 (sáb) | C | Gráficos (convergência, desejáveis por método, taxa de mutação) e notebook em modo rápido do início ao fim |
-| 29/11 (sáb) | B | Mapas lado a lado e as figuras da modelagem (célula com 4 genes, corte vertical, simulação em 3 quadros) |
-| 30/11 (dom) | Todos | Fichamentos (os 3 ainda estão vazios no Diário); slides das próprias partes; respostas da análise (`09_analise.md`); **código congelado às 23h**, com a tag `entrega` |
-| 30/11 (dom) | Todos | Ensaio cronometrado de 12 minutos (pode ser por chamada) e sabatina cruzada: cada um explica um módulo que não escreveu |
-| 01/12 (ter) | Todos | Apresentação, se for nesse dia. Se for em 03/12: 01/12 vira o dia de revisão com o professor, e o CP4 e a apresentação ficam juntos em 03/12 |
-
-Se o `ag.py` atrasar, o primeiro corte é o E3 (opcional), e o segundo é o E1 com só 3 taxas (0, 1 e 5 genes por filho). O mínimo da disciplina (10 sementes e 2 parâmetros variados) continua cumprido com E0 + E2 + E1 reduzido.
+| 28/11 (sex) | C | `ag.py` rodando: `populacao_inicial` e `algoritmo_genetico`, com os testes de elitismo, contador e reprodutibilidade (PLANO.md, 5.3). **É o que destrava o ensaio e a bateria** |
+| 30/11 (dom) | B | `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) |
+| 30/11 (dom) | A | Ensaio de convergência (`python -m gerador.experimentos ensaio --processos 3`) e decisão do orçamento, assim que o `ag.py` rodar |
+| 30/11 (dom) | Todos | Fichamentos (os 3 ainda estão vazios no Diário) |
+| 01/12 (ter, aula) | Todos | Ler o Ponto de Retomada; E0 em modo rápido; perguntas ao professor; revisão. Apresentar nesse dia só se tudo estiver pronto |
+| 01 e 02/12 (casa) | A | Bateria completa (`python -m gerador.experimentos tudo --processos 10`), tabelas com `python ferramentas/tabela_resultados.py` e a comparação por tempo |
+| 01 e 02/12 (casa) | C | Gráficos (convergência, desejáveis por método, taxa de mutação) e o notebook executado |
+| 01 e 02/12 (casa) | B | Mapas lado a lado e as figuras da modelagem |
+| 02/12 (qua) | Todos | Slides das próprias partes; respostas da análise (`09_analise.md`); ensaio cronometrado de 12 minutos e sabatina cruzada; **código congelado às 23h**, com a tag `entrega` |
+| 03/12 (qui) | Todos | CP4, entrega no SIGAA com folga e apresentação |
 
 ## Próximos passos
 
