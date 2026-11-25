@@ -14,7 +14,9 @@ def selecao_torneio(pop, apts, k, rng):
 
     Teste: com k = len(pop), devolve sempre o melhor; alterar a cópia não altera a população.
     """
-    raise NotImplementedError
+    indices = rng.sample(range(len(pop)), k)
+    melhor = max(indices, key=lambda i: apts[i])
+    return list(pop[melhor])
 
 
 def cruzamento_um_ponto(p1, p2, rng):
@@ -23,7 +25,10 @@ def cruzamento_um_ponto(p1, p2, rng):
     Com o cromossomo em ordem de colunas, o corte é uma linha vertical do mapa (PLANO.md, P3).
     Devolve (filho1, filho2). Teste: em cada posição, os filhos têm os dois valores dos pais.
     """
-    raise NotImplementedError
+    corte = rng.randrange(1, len(p1))
+    filho1 = p1[:corte] + p2[corte:]
+    filho2 = p2[:corte] + p1[corte:]
+    return filho1, filho2
 
 
 def cruzamento_por_zona(p1, p2, rng, inst):
@@ -42,4 +47,11 @@ def mutacao(crom, taxa, rng, inst):
     Testes: taxa 0 não muda nada; taxa 1 muda os 281 livres e nenhum dos 106 fixos; o original
     continua igual; dominios_ok continua verdadeiro.
     """
-    raise NotImplementedError
+    novo_crom = list(crom)
+    for p in inst.genes_livres:
+        if rng.random() < taxa:
+            valor = rng.randrange(inst.dominio[p] - 1)
+            if valor >= novo_crom[p]:
+                valor += 1
+            novo_crom[p] = valor
+    return novo_crom
