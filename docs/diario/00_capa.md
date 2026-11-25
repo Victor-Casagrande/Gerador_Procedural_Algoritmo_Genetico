@@ -19,5 +19,5 @@
 | Papel | Quem | Escreve | Assume (lê até saber explicar) | Fichamento | Partes da apresentação |
 |---|---|---|---|---|---|
 | A: núcleo e experimentos | Victor *(proposto; confirmar)* | `config`, `representacao`, `validacao`, `experimentos` | — | Pereira et al. (2021) | 3 e 4 |
-| B: sem IA e operadores | *(definir)* | `operadores` | `aleatorio`, `baselines`, `desenho` | Shaker et al. (2016) | 1, 2 e 7 |
+| B: sem IA e operadores | Lucas | `operadores` | `aleatorio`, `baselines`, `desenho` | Shaker et al. (2016) | 1, 2 e 7 |
 | C: AG e resultados | *(definir)* | `ag`, `graficos`, notebook | `avaliacao` | Togelius et al. (2011) | 5 e 6 |
