@@ -6,7 +6,7 @@
 |---|---|
 | Disciplina | Inteligência Artificial (CCC0736) · Prof. Tiago Heineck |
 | Turma | Turma 01 · 2026/2 · IFC Campus Videira |
-| Equipe | Lucas, Victor e Willighan *(completar com os nomes completos)* |
+| Equipe | Lucas Duarte Lopes, Victor Casagrande e Willighan Tinelli de Souza |
 | Técnica principal | Algoritmo genético |
 | Criado em | 17/11/2026 (aula 1) |
 | Onde estão os arquivos | Repositório github.com/Victor-Casagrande/Gerador_Procedural_Algoritmo_Genetico. Plano: `docs/PLANO.md`. Estado: `docs/ESTADO.md`. Este Diário: `docs/diario/` |
@@ -18,6 +18,6 @@
 
 | Papel | Quem | Escreve | Assume (lê até saber explicar) | Fichamento | Partes da apresentação |
 |---|---|---|---|---|---|
-| A: núcleo e experimentos | Victor *(proposto; confirmar)* | `config`, `representacao`, `validacao`, `experimentos` | — | Pereira et al. (2021) | 3 e 4 |
+| A: núcleo e experimentos | Victor | `config`, `representacao`, `validacao`, `experimentos` | — | Pereira et al. (2021) | 3 e 4 |
 | B: sem IA e operadores | Lucas | `operadores` | `aleatorio`, `baselines`, `desenho` | Shaker et al. (2016) | 1, 2 e 7 |
-| C: AG e resultados | *(definir)* | `ag`, `graficos`, notebook | `avaliacao` | Togelius et al. (2011) | 5 e 6 |
+| C: AG e resultados | Willighan | `ag`, `graficos`, notebook | `avaliacao` | Togelius et al. (2011) | 5 e 6 |

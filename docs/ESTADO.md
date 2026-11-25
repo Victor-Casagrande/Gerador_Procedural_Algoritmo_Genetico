@@ -2,17 +2,17 @@
 
 **Atualize este arquivo em todo PR:** marque o que ficou pronto e escreva o próximo passo. É por ele que qualquer integrante, e qualquer IA, sabe onde o projeto está sem precisar perguntar.
 
-Última atualização: 25/11/2026 (Papel B, com apoio de IA; ver o diario/06_registro_ia.md).
+Última atualização: 25/11/2026 (Lucas e Victor, com apoio de IA; ver o diario/06_registro_ia.md).
 
 ## Papéis
 
 | Papel | Quem | Módulos |
 |---|---|---|
-| A: núcleo e experimentos | Victor *(proposto; confirmar)* | `config`, `representacao`, `validacao`, `experimentos` |
+| A: núcleo e experimentos | Victor | `config`, `representacao`, `validacao`, `experimentos` |
 | B: sem IA, operadores e desenho | Lucas | `aleatorio`, `baselines`, `operadores`, `desenho` |
 | C: avaliação, AG, gráficos e notebook | Willighan | `avaliacao`, `ag`, `graficos`, notebook |
 
-Em 24/11, para não perder o CP2, o papel A também implementou `aleatorio`, `baselines`, `avaliacao` e `desenho`. Sugestão para equilibrar:
+Em 24/11, para não perder o CP2, o papel A também implementou `aleatorio`, `baselines`, `avaliacao` e `desenho`. Divisão combinada pela equipe para equilibrar:
 - **B fica com `operadores.py`** (torneio, cruzamentos, mutação) e assume o `desenho.py` e o `baselines.py` (lendo, revisando e sabendo explicar);
 - **C fica com `ag.py`, `graficos.py` e o notebook**, e assume o `avaliacao.py` da mesma forma.
 
@@ -41,7 +41,7 @@ Observação: em 23/11 não houve aula de IA, ao contrário do que dizia a grade
 - `desenho.py`: `desenhar_mapa` e `desenhar_lado_a_lado`;
 - `experimentos.py`: `rodar_execucao`, `bateria` (com processos), `resumir`, `salvar_csv`, linha de comando.
 
-**Testes:** 28 testes. Entre eles:
+**Testes:** 40 testes (29 do núcleo, da avaliação e dos baselines; 11 dos operadores, de 25/11). Entre eles:
 - os mapas M1 a M4 com as respostas feitas à mão;
 - o pior caso do `cromossomo_base` (penalidade 6078);
 - as duas buscas concordando;
@@ -78,6 +78,7 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 | B | **Concluído em 25/11:** `selecao_torneio`, `cruzamento_um_ponto`, `mutacao`, com os testes da seção 5.3 | 25/11 (aula extra) |
 | C | `ag.py`: `populacao_inicial` e `algoritmo_genetico`, seguindo o laço do projeto exemplo | 25/11 |
 | B | Próximo passo: `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) | até 30/11 |
+| A | Fichamento de Pereira et al. (2021) em `docs/diario/03_fichamentos.md`; perguntas ao professor e Ponto de Retomada de 25/11 | 25/11 (aula extra) |
 | A | Ensaio de convergência (3 sementes) e decisão do orçamento; integrar o AG em `experimentos.py` | 26 a 30/11 |
 | C | Notebook em modo rápido do início ao fim; `grafico_convergencia` | até 01/12 |
 | Todos | Ler os módulos que não escreveram; refazer à mão o mapa M1 (`testes/mapas_pequenos.py`) | até 01/12 |
