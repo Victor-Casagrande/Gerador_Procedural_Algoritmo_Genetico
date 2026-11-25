@@ -32,7 +32,7 @@ class Resultado(NamedTuple):
     melhor: list              # o melhor cromossomo visto
     historico: list           # melhor penalidade até cada geração (AG) ou a cada 200 avaliações
     n_avaliacoes: int
-    primeiro_valido: object   # geração (AG) ou avaliação (baselines) do primeiro mapa sem violação obrigatória; None se nunca
+    primeiro_valido: object   # índice da avaliação (1 a n_avaliacoes), no AG e nas buscas, do primeiro mapa sem violação obrigatória; None se nunca
     tempo: float              # segundos
 
 

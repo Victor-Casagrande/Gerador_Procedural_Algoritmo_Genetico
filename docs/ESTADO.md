@@ -2,7 +2,7 @@
 
 **Atualize este arquivo em todo PR:** marque o que ficou pronto e escreva o próximo passo. É por ele que qualquer integrante, e qualquer IA, sabe onde o projeto está sem precisar perguntar.
 
-Última atualização: 25/11/2026 (Papel B, com apoio de IA; ver o diario/06_registro_ia.md).
+Última atualização: 25/11/2026 (Papel C, laço do AG, com apoio de IA; ver o diario/06_registro_ia.md).
 
 ## Papéis
 
@@ -76,7 +76,8 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 | Quem | Tarefa | Prazo |
 |---|---|---|
 | B | **Concluído em 25/11:** `selecao_torneio`, `cruzamento_um_ponto`, `mutacao`, com os testes da seção 5.3 | 25/11 (aula extra) |
-| C | `ag.py`: `populacao_inicial` e `algoritmo_genetico`, seguindo o laço do projeto exemplo | 25/11 |
+| C | **Concluído em 25/11 (branch `feat/ag-laco`, falta revisão):** `populacao_inicial` e `algoritmo_genetico` em `ag.py`, com `testes/test_ag.py` (63 testes passando no total). Fórmulas no cabeçalho do módulo. Falta rodar o 200 × 300 (ensaio do papel A) | 25/11 |
+| C | Revisar o `ag.py` linha por linha e responder os "Pontos a discutir" abaixo antes do ensaio de convergência | até 26/11 |
 | B | Próximo passo: `cruzamento_por_zona` e o teste de fechamento (1000 pares do construtivo) | até 30/11 |
 | A | Ensaio de convergência (3 sementes) e decisão do orçamento; integrar o AG em `experimentos.py` | 26 a 30/11 |
 | C | Notebook em modo rápido do início ao fim; `grafico_convergencia` | até 01/12 |
@@ -88,7 +89,29 @@ Desejáveis por tipo (média): construtivo S1 = 8,2, S2 = 3,7, S3 = 3,9, S4 = 2,
 - Perguntas ao professor (ver o Ponto de Retomada de 17/11 no Diário): um `.zip` com módulos e notebook vale como "baseline no mesmo arquivo"? A bateria pode rodar em casa? O AG semeado é aceito?
 - Repositório público ou privado; proteção da `main`.
 
+## Pontos a discutir com a equipe (levantados na análise do laço do AG, 25/11)
+
+Nada abaixo mudou parâmetro congelado. São decisões ou conferências que dependem do grupo. Os números marcados "estimativa" não foram medidos.
+
+**Decisões tomadas no código que o PLANO.md não dizia (confirmar):**
+1. **`primeiro_valido` é o índice da avaliação (1 a `n_avaliacoes`), não a geração.** O PLANO.md (seção 3.3 e 6.2) diz "geração". Mudei para a unidade ser a mesma das buscas no CSV do E0. Se a equipe preferir a geração, `experimentos.py` converte, mas aí o E0 mistura unidades. O comentário de `Resultado` em `baselines.py` (papel B) foi ajustado só nisso.
+2. **`historico` é o melhor visto até cada geração (acumulado), não o mínimo da geração.** Igual ao das buscas. Com `elite ≥ 1` os dois coincidem; com `elite = 0` (E3 opcional) o acumulado nunca sobe.
+3. **Uma moeda por par no cruzamento e elite que não cruza nem muta.** Atribuídas ao projeto exemplo, mas o notebook dele não está no repositório. Conferir na seção 4 do exemplo.
+4. **O par inteiro é cruzado e mutado e a lista é cortada em `tam_pop − elite`.** No padrão (200, 2) são 99 pares exatos e o corte não faz nada.
+5. **A aptidão `1/(1+φ)` não influencia o torneio** (só a ordem de φ conta). Mantida pela forma do exemplo.
+
+**Riscos para ler antes dos experimentos (e registrar a previsão no Diário antes de rodar E0 a E2):**
+6. **Pressão de seleção alta:** com k = 3 e N = 200, a linhagem do melhor domina em 6 a 7 gerações. O progresso depois disso vem quase só da mutação (cerca de 1 gene por filho).
+7. **Mutação:** genes mutados por filho seguem aproximadamente Poisson(1): 37% dos filhos não mutam nada. Estimativa: perto de metade dos filhos repete o φ do pai (genes inertes: ligação com ponta vazia, armadilha fora de corredor). O PLANO.md (seção 4.4, item 5) conta indivíduos gerados, então o AG é um pouco desfavorecido na contagem de 60 200. Dizer isso na análise.
+8. **Cruzamento de um ponto:** só cortes em 130 ou 259 respeitam a fronteira de zona (2 em 386). Entre pais distantes tende a quebrar a conectividade; entre irmãos da mesma população é benigno. O por zona só mistura 6 combinações. Previsão: E2 com diferença pequena no AG puro.
+9. **Paisagem em estágios:** se a Zona Leve não conecta ao checkpoint A, todo o resto fica inalcançável (H2 alto) e melhorias nas outras zonas não aparecem em φ.
+10. **Hipótese do esvaziamento:** esvaziar uma célula inalcançável baixa H2 mais barato que conectá-la, e o freio é H5 (16 ocupadas por zona). Conferir nos mapas finais se o AG fica perto de 16 por zona, ao contrário do construtivo (16 a 24).
+11. **Previsões a registrar:** AG puro chega a H = 0 em muitas sementes mas fica acima do rerolado (2,4) nas desejáveis; E1 (mutação) mostra o efeito mais claro; o AG semeado depende do cruzamento por zona para não perder validade.
+
+**Medições que ajudariam (fora do escopo desta tarefa):** φ da população inicial sorteada, fração de filhos com φ igual ao do pai e diversidade por geração.
+
 ## Ideias (fora do escopo até o mínimo ficar pronto)
 
+- Medir a diversidade e a fração de filhos neutros por geração, para sustentar os pontos 6 a 8 acima.
 - Formato da peça no desenho (ponta, reto, curva, T, cruz).
 - Grade 20 × 12 para falar de escala.
